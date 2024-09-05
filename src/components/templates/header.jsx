@@ -14,7 +14,7 @@ const header = ({ data }) => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="w-full h-[60vh] flex flex-col justify-end items-start p-[5%]"
+      className="w-full h-[50vh] flex flex-col justify-end items-start p-[5%]"
     >
       <h1 className="w-[70%] text-5xl font-black text-white ">
         {data.name || data.title || data.original_name || data.original_title}
