@@ -1,80 +1,77 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Topnav from "./templates/Topnav";
-import Dropdown from "./templates/Dropdown";
 import axios from "../utilities/axios";
-import Cards from "./templates/Cards";
-import Loading from "./loading";
+import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useNavigate } from "react-router-dom";
+import Loading from "./loading";
+import Topnav from "./templates/Topnav";
+import Cards from "./templates/Cards";
 
 const People = () => {
-    const navigate = useNavigate();
-  const [category, setcategory] = useState("popular");
-  const [people, setpeople] = useState([]);
-  const [Page, setPage] = useState(1);
-  const [hasMore, sethasMore] = useState(true);
-  document.title = "XFlix | Movies " + category.toUpperCase();
+  document.title = "XFlix | person Shows";
 
-  const GetPeople = async () => {
+  const navigate = useNavigate();
+  const [category, setcategory] = useState("popular");
+  const [person, setperson] = useState([]);
+  const [page, setpage] = useState(1);
+  const [hasMore, sethasMore] = useState(true);
+
+  const GetPerson = async () => {
     try {
-      const { data } = await axios.get(
-        `/person/${category}?page=${Page}`
-      );
+      const { data } = await axios.get(`/person/${category}?page=${page}`);
       if (data.results.length > 0) {
-        setpeople((prevState) => [...prevState, ...data.results]);
-        setPage(Page + 1);
+        setperson((prevState) => [...prevState, ...data.results]);
+        setpage(page + 1);
       } else {
         sethasMore(false);
       }
-
-      //   setpeople(data.results);
     } catch (error) {
-      console.log("Error", error);
+      console.log("Error: ", error);
     }
   };
 
-  const refreshHandler = () => {
-    if (people.length === 0) {
-      GetPeople();
+  const refershHandler = () => {
+    if (person.length === 0) {
+      GetPerson();
     } else {
-      setPage(1);
-      setpeople([]);
-      GetPeople();
+      setpage(1);
+      setperson([]);
+      GetPerson();
     }
   };
 
   useEffect(() => {
-    refreshHandler();
+    refershHandler();
   }, [category]);
 
-  return people.length > 0 ? (
-    <div className="w-screen h-screen">
-      <div className="px-[5%] w-full flex items-center justify-between">
-        <h1 className=" text-2xl text-zinc-400 font-semibold">
+  return person.length > 0 ? (
+    <div className="w-screen h-screen ">
+      <div className=" px-[5%] w-full flex items-center justify-between ">
+        <h1 className=" text-2xl font-semibold text-zinc-400">
           <i
             onClick={() => navigate(-1)}
-            className="hover:text-[#DBF227] mr-1 ri-arrow-left-line"
-          ></i>
+            className="hover:text-[#DBF227] ri-arrow-left-line"
+          ></i>{" "}
           People
         </h1>
-        <div className="flex items-center justify-between w-[80%]">
+        <div className="flex items-center w-[80%]">
           <Topnav />
-          
+
+          <div className="w-[2%]"></div>
         </div>
       </div>
 
       <InfiniteScroll
-        dataLength={people.length}
-        next={GetPeople}
+        dataLength={person.length}
+        next={GetPerson}
         hasMore={hasMore}
-        loader={<h1>Loading</h1>}
+        loader={<h1>Loading...</h1>}
       >
-        <Cards data={people} title={category} />
+        <Cards data={person} title="person" />
       </InfiniteScroll>
     </div>
   ) : (
     <Loading />
   );
-}
+};
 
-export default People
+export default People;

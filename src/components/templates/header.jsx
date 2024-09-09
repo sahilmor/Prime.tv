@@ -1,9 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const header = ({ data }) => {
 //   console.log(data);
-
   return (
     <div
       style={{
@@ -29,7 +27,9 @@ const header = ({ data }) => {
         <i className="ml-5 text-yellow-500 ri-album-fill"></i>
         {data.media_type.toUpperCase()}
       </p>
-      <Link className="mt-5 p-3 bg-[#DBF227] rounded text-black">Watch trailer</Link>
+      <Link 
+      to={`/${data.media_type}/details/${data.id}/trailer`}
+      className="mt-5 p-3 bg-[#DBF227] rounded text-black">Watch trailer</Link>
     </div>
   );
 };

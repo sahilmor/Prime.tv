@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Sidenav from "./templates/sidenav";
 import Topnav from "./templates/Topnav";
 import axios from "../utilities/axios";
 import Header from "./templates/header";
-import Horizontalcards from "./templates/Horizontalcards";
+import HorizontalCards from "./templates/Horizontalcards";
 import Dropdown from "./templates/Dropdown";
-import Loading from "./loading"
+import Loading from "./loading";
 
 const Home = () => {
-  document.title = "Xflix | Homepage";
+  document.title = "XFlix | Homepage";
   const [wallpaper, setwallpaper] = useState(null);
   const [trending, settrending] = useState(null);
   const [category, setcategory] = useState("all");
@@ -16,11 +16,11 @@ const Home = () => {
   const GetHeaderWallpaper = async () => {
     try {
       const { data } = await axios.get(`/trending/all/day`);
-      let randomData =
+      let randomdata =
         data.results[(Math.random() * data.results.length).toFixed()];
-      setwallpaper(randomData);
+      setwallpaper(randomdata);
     } catch (error) {
-      console.log("Error", error);
+      console.log("Error: ", error);
     }
   };
 
@@ -29,30 +29,30 @@ const Home = () => {
       const { data } = await axios.get(`/trending/${category}/day`);
       settrending(data.results);
     } catch (error) {
-      console.log("Error", error);
+      console.log("Error: ", error);
     }
   };
 
   useEffect(() => {
     GetTrending();
     !wallpaper && GetHeaderWallpaper();
-  }, [category]);
-
+  }, [category, GetTrending, GetHeaderWallpaper, wallpaper]);
+  
   return wallpaper && trending ? (
     <>
       <Sidenav />
       <div className="w-[80%] h-full overflow-auto overflow-x-hidden">
         <Topnav />
         <Header data={wallpaper} />
-        <div className="p-5 flex justify-between">
+        <div className="flex justify-between p-5">
           <h1 className="text-3xl font-semibold text-zinc-400">Trending</h1>
           <Dropdown
             title="Filter"
-            options={["all", "tv", "movie"]}
+            options={["tv", "movie", "all"]}
             func={(e) => setcategory(e.target.value)}
           />
         </div>
-        <Horizontalcards data={trending} />
+        <HorizontalCards data={trending} />
       </div>
     </>
   ) : (
