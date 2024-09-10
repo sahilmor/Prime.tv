@@ -15,6 +15,7 @@ const Dropdown = ({ title, options, func }) => {
             </select>
         </div>
     );
+    
 };
 
 export default Dropdown;
