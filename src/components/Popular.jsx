@@ -8,7 +8,7 @@ import Dropdown from "./templates/Dropdown";
 import Cards from "./templates/Cards";
 
 const Popular = () => {
-    document.title = "XFlix | Popular";
+    document.title = "Prime.tv | Popular";
 
     const navigate = useNavigate();
     const [category, setcategory] = useState("movie");

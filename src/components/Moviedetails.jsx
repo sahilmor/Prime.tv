@@ -12,7 +12,7 @@ import HorizontalCards from "./templates/Horizontalcards";
 import Loading from "./loading";
 
 const Moviedetails = () => {
-  document.title = "XFlix | Movie Details";
+  document.title = "Prime.tv | Movie Details";
 
   const { pathname } = useLocation();
   const navigate = useNavigate();

@@ -7,7 +7,7 @@ import Loading from "./loading";
 import Dropdown from "./templates/Dropdown";
 
 const PersonDetails = () => {
-    document.title = "XFlix | Person Details";
+    document.title = "Prime.tv | Person Details";
 
     const { pathname } = useLocation();
     const navigate = useNavigate();

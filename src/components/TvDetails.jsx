@@ -13,7 +13,7 @@ import HorizontalCards from "./templates/Horizontalcards";
 import Loading from "./loading";
 
 const TvDetails = () => {
-    document.title = "XFlix | Tv Show Details";
+    document.title = "Prime.tv | Tv Show Details";
     const { pathname } = useLocation();
     const navigate = useNavigate();
     const { id } = useParams();

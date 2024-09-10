@@ -5,7 +5,7 @@ return (
   <div className="w-[20%] h-full border-r-2 border-zinc-400 p-8">
     <h1 className="text-2xl text-white font-bold">
       <i className="text-[#DBF227] ri-tv-fill mr-2"></i>
-      <span><Link to="/">Xflix.</Link></span>
+      <span><Link to="/">Prime.tv</Link></span>
     </h1>
     <nav className="flex flex-col text-zinc-400 text-l gap-1">
       <h1 className="text-white font-semibold text-xl mt-7 mb-2">New Feeds</h1>

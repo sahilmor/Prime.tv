@@ -8,7 +8,7 @@ import Loading from "./loading";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const Trending = () => {
-    document.title = "XFlix | Trending";
+    document.title = "Prime.tv | Trending";
     const navigate = useNavigate();
     const [category, setcategory] = useState("all");
     const [duration, setduration] = useState("day");

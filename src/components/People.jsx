@@ -7,7 +7,7 @@ import Topnav from "./templates/Topnav";
 import Cards from "./templates/Cards";
 
 const People = () => {
-  document.title = "XFlix | person Shows";
+  document.title = "Prime.tv | person Shows";
 
   const navigate = useNavigate();
   const [category, setcategory] = useState("popular");

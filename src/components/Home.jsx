@@ -8,7 +8,7 @@ import Dropdown from "./templates/Dropdown";
 import Loading from "./loading";
 
 const Home = () => {
-  document.title = "XFlix | Homepage";
+  document.title = "Prime.tv | Homepage";
   const [wallpaper, setwallpaper] = useState(null);
   const [trending, settrending] = useState(null);
   const [category, setcategory] = useState("all");

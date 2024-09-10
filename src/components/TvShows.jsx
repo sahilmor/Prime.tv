@@ -8,7 +8,7 @@ import Dropdown from "./templates/Dropdown";
 import Cards from "./templates/Cards";
 
 const Tvshows = () => {
-    document.title = "XFlix | Tv Shows";
+    document.title = "Prime.tv | Tv Shows";
 
     const navigate = useNavigate();
     const [category, setcategory] = useState("airing_today");
