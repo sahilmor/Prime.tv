@@ -25,6 +25,7 @@ const Moviedetails = () => {
       dispatch(removemovie());
     };
   }, [id]);
+
   return info ? (
     <div
       style={{
@@ -110,6 +111,16 @@ const Moviedetails = () => {
             <i className="text-xl ri-play-fill mr-3 "></i>
             Play Trailer
           </Link>
+
+          <a
+            className="p-5 bg-[#DBF227] rounded-lg ml-4"
+            href={`https://vidsrc.me/embed/movie/${id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="text-xl ri-play-fill mr-3"></i>
+            Watch Full Movie
+          </a>
         </div>
       </div>
 
