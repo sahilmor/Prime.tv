@@ -105,20 +105,20 @@ const TvDetails = () => {
           <p className="mb-10">{info.translations.join(", ")}</p>
 
           <Link
-            className="p-5 bg-[#DBF227] rounded-lg"
+            className="p-5 bg-[#DBF227] rounded-lg text-black"
             to={`${pathname}/trailer`}
           >
-            <i className="text-xl ri-play-fill mr-3 "></i>
+            <i className="text-xl ri-play-fill mr-3 text-black"></i>
             Play Trailer
           </Link>
 
           <a
-            className="p-5 bg-[#DBF227] rounded-lg ml-4"
+            className="p-5 bg-[#DBF227] rounded-lg ml-4 text-black"
             href={`https://vidsrc.xyz/embed/tv/${id}`}
-            target="_blank"
+            target="_self"
             rel="noopener noreferrer"
           >
-            <i className="text-xl ri-play-fill mr-3"></i>
+            <i className="text-xl ri-play-fill mr-3 text-black"></i>
             Watch Full Series
           </a>
         </div>
