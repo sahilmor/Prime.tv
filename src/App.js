@@ -13,6 +13,7 @@ import Trailer from "./components/templates/Trailer";
 import NotFound from "./components/NotFound";
 import { Provider } from 'react-redux';
 import About from './components/About';
+import Contact from './components/ContactUs';
 
 const App = () => {
     return (
@@ -40,6 +41,7 @@ const App = () => {
                 </Route>
                 <Route path="/person" element={<People />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route path="/person/details/:id" element={<PersonDetails />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>

@@ -33,7 +33,7 @@ return (
       <Link to="/about" className="hover:bg-[#DBF227] hover:text-[#042940] rounded-lg duration-300 p-4">
         <i className="mr-2 ri-information-2-fill"></i>About
       </Link>
-      <Link className="hover:bg-[#DBF227] hover:text-[#042940] rounded-lg duration-300 p-4">
+      <Link to="/contact" className="hover:bg-[#DBF227] hover:text-[#042940] rounded-lg duration-300 p-4">
         <i className="mr-2 ri-phone-fill"></i>Contact Us
       </Link>
     </nav>
